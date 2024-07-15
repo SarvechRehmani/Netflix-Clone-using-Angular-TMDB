@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { Movie } from '../../models/Movies';
 
 @Component({
   selector: 'app-movie-category',
@@ -15,5 +16,5 @@ export class MovieCategoryComponent implements OnInit {
     console.log(2);
   }
   @Input() title = '';
-  @Input() moviesList: any[] = [];
+  @Input() moviesList: Movie[] = [];
 }

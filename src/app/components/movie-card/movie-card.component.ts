@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Movie } from '../../models/Movies';
+import { tmdbConfig } from '../../constant/config';
 
 @Component({
   selector: 'app-movie-card',
@@ -11,5 +13,6 @@ export class MovieCardComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.movie);
   }
-  @Input() movie: any = {};
+  @Input() movie!: Movie;
+  imgUrl = tmdbConfig.img_path;
 }

@@ -6,6 +6,8 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { CommonModule } from '@angular/common';
 import { MovieCategoryComponent } from '../../components/movie-category/movie-category.component';
 import { MovieService } from '../../Service/movie.service';
+import { Movie } from '../../models/Movies';
+import { tmdbConfig } from '../../constant/config';
 
 @Component({
   selector: 'app-browse',
@@ -19,14 +21,19 @@ export class BrowseComponent {
     private movieService: MovieService,
     private toatr: ToastrService
   ) {}
-  popularMovies: any[] = [];
-  playingMovies: any[] = [];
-  topRatedMovies: any[] = [];
-  upcomingMovies: any[] = [];
+  popularMovies: Movie[] = [];
+  playingMovies: Movie[] = [];
+  topRatedMovies: Movie[] = [];
+  upcomingMovies: Movie[] = [];
+  bannerMovie!: Movie;
+
+  imgUrl = tmdbConfig.img_path;
+
   ngOnInit(): void {
     this.movieService.getPopularMovies().subscribe(
       (data: any) => {
         this.popularMovies = data.results;
+        this.bannerMovie = this.popularMovies[1];
         console.log(this.popularMovies);
       },
       (error) => {

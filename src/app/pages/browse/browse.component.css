@@ -17,6 +17,30 @@
       flex-direction: column;
       top: 40%;
       padding-left: 2rem;
+      max-width: 600px;
+      .banner-description {
+      }
+      .banner-actions {
+        display: flex;
+        padding: 10px 20px;
+        gap: 32px;
+        .play-btn {
+          background-color: white;
+          color: black;
+          font-weight: bold;
+          font-size: 20px;
+          padding: 12px 12px;
+          border-radius: 4px;
+        }
+        .info-btn {
+          background-color: #525050c5;
+          color: white;
+          font-weight: bold;
+          font-size: 20px;
+          border-radius: 4px;
+          padding: 12px 12px;
+        }
+      }
     }
   }
 }
