@@ -16,7 +16,9 @@
     </div>
   </div>
   <div class="movie-categories">
-    <app-movie-category [title]="'Trending'" />
-    <app-movie-category [title]="'New release'" />
+    <app-movie-category [title]="'Popular'" [moviesList]="playingMovies" />
+    <app-movie-category [title]="'New release'" [moviesList]="popularMovies" />
+    <app-movie-category [title]="'Top rated'" [moviesList]="topRatedMovies" />
+    <app-movie-category [title]="'Upcoming'" [moviesList]="upcomingMovies" />
   </div>
 </div>

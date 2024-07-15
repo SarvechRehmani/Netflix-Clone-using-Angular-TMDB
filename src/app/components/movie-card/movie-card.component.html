@@ -1,8 +1,8 @@
 <div class="movie-card">
   <img
-    src="https://occ-0-1917-58.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABetoGk0CLIkPxKr6MMuFswl25hF_gsw1TIvJakiPx32KBAPxk4wVqHDMPX2vPjBXdHr45GtWlm7ARQUlBfkMhQZ6v1akZbdncW8.jpg?r=cfe"
+    [src]="'http://image.tmdb.org/t/p/w500/' + movie.poster_path"
     alt="movie image"
   />
-  <h4>Title</h4>
-  <p>description</p>
+  <h4 class="text-white">{{ movie.original_title }}</h4>
+  <!-- <p>description</p> -->
 </div>

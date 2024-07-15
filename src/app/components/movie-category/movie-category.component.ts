@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 
 @Component({
@@ -8,6 +8,12 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
   templateUrl: './movie-category.component.html',
   styleUrl: './movie-category.component.css',
 })
-export class MovieCategoryComponent {
+export class MovieCategoryComponent implements OnInit {
+  ngOnInit(): void {
+    console.log(1);
+    console.log(this.moviesList);
+    console.log(2);
+  }
   @Input() title = '';
+  @Input() moviesList: any[] = [];
 }
