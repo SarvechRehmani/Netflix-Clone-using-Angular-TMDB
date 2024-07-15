@@ -1,13 +1,51 @@
-<body class="bg-[url('assets/loginBackground.jpg')] relative">
+<!-- <div class="bg-[url('{{ BG }}')] relative">
   <div
     class="absolute bg-neutral-950/60 top-0 left-0 min-h-screen min-w-full"
   ></div>
   <div class="container px-40 py-5">
     <div class="logo absolute z-50">
-      <img src="assets/logo.png" class="w-40" alt="" />
+      <img src="{{ LOGO }}" class="w-40" alt="" />
     </div>
-    <div class="card">
+    <div class="card bg-white text-center">
       <h1>Sign in</h1>
     </div>
   </div>
-</body>
+</div> -->
+
+<div
+  class="bg-black h-screen"
+  [ngStyle]="{ 'background-image': 'url(' + BG + ')' }"
+>
+  <div class="header">
+    <img [src]="LOGO" alt="Logo" class="w-52" />
+  </div>
+
+  <div class="login-container">
+    <div class="login-card">
+      <h2 class="heading">Sign In</h2>
+      <form>
+        <div class="form-field">
+          <input
+            type="text"
+            class="input"
+            [(ngModel)]="loginData.email"
+            name="email"
+            placeholder="Email or phone number"
+          />
+        </div>
+        <div class="form-field">
+          <input
+            type="password"
+            class="input"
+            [(ngModel)]="loginData.password"
+            name="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="action-field">
+          <button class="login-btn" (click)="onSubmit()">Sign In</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
