@@ -1,1 +1,22 @@
-<p>browse works!</p>
+<div class="browse-page">
+  <app-header />
+  <div class="banner">
+    <img
+      class="banner-img"
+      src="https://occ-0-1917-58.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABUDjWv1Nvurgj-Sflx3-Ekx5PYbUleSp_gQikY3w0L6r0Lw_jyYwI65d1hCHCD9KkzxaaMSv_ubHDrzljEWr8dSN7cqI2iDofLoS.jpg?r=960"
+      alt=""
+    />
+    <div class="banner-movie-info">
+      <h4>Movie Title</h4>
+      <p>Movie description</p>
+      <div>
+        <button>Play</button>
+        <button>More Info</button>
+      </div>
+    </div>
+  </div>
+  <div class="movie-categories">
+    <app-movie-category [title]="'Trending'" />
+    <app-movie-category [title]="'New release'" />
+  </div>
+</div>

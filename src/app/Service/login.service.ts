@@ -9,6 +9,11 @@ export class LoginService {
   loginUser(loginData: any) {
     // here we call the api for login user and getting token from api.
     // then we save this token in local storage.
-    localStorage.setItem('token', Math.random() + '');
+    localStorage.setItem('token', 'loged in');
+    return true;
+  }
+
+  get isLogedIn(): boolean {
+    return !!localStorage.getItem('token');
   }
 }
