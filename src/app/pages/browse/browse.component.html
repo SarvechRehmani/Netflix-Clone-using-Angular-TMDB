@@ -1,23 +1,41 @@
 <div class="browse-page">
   <app-header />
   <div class="banner">
+    @if (bannerMovie && bannerMovie.videoKey) {
+    <iframe
+      class="banner-video"
+      [src]="
+        sanitizer.bypassSecurityTrustResourceUrl(
+          'http://www.youtube.com/embed/' +
+            bannerMovie.videoKey +
+            '?showinfo=0&controls=0&autoplay=1&mute=1'
+        )
+      "
+      autoplay="true"
+      mute
+      frameborder="0"
+    ></iframe>
+    }@else{
     <img
       class="banner-img"
       [src]="imgUrl + bannerMovie.backdrop_path"
       alt="banner image"
     />
+    }
     <div class="banner-movie-info">
       <h4 class="text-5xl font-bold mb-3">
         {{ bannerMovie.original_title }}
       </h4>
       <p class="text-lg">{{ bannerMovie.overview }}</p>
       <div class="banner-actions">
-        <button class="play-btn">Play</button>
-        <button class="info-btn">More Info</button>
+        <button class="play-btn"><i class="fas fa-play mr-3"></i>Play</button>
+        <button class="info-btn">
+          <i class="fa-solid fa-circle-exclamation mr-3"></i>More Info
+        </button>
       </div>
     </div>
   </div>
-  <div class="movie-categories">
+  <div class="movie-categories px-16 relative z-50 -mt-40">
     <app-movie-category [title]="'Popular'" [moviesList]="playingMovies" />
     <app-movie-category [title]="'New release'" [moviesList]="popularMovies" />
     <app-movie-category [title]="'Top rated'" [moviesList]="topRatedMovies" />

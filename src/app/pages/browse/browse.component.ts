@@ -8,6 +8,7 @@ import { MovieCategoryComponent } from '../../components/movie-category/movie-ca
 import { MovieService } from '../../Service/movie.service';
 import { Movie } from '../../models/Movies';
 import { tmdbConfig } from '../../constant/config';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-browse',
@@ -19,7 +20,8 @@ import { tmdbConfig } from '../../constant/config';
 export class BrowseComponent {
   constructor(
     private movieService: MovieService,
-    private toatr: ToastrService
+    private toatr: ToastrService,
+    public sanitizer: DomSanitizer
   ) {}
   popularMovies: Movie[] = [];
   playingMovies: Movie[] = [];
@@ -34,37 +36,41 @@ export class BrowseComponent {
       (data: any) => {
         this.popularMovies = data.results;
         this.bannerMovie = this.popularMovies[1];
-        console.log(this.popularMovies);
+        this.movieService
+          .getMovieVideo(this.bannerMovie.id)
+          .subscribe((data: any) => {
+            this.bannerMovie.videoKey = data.results.find(
+              (x: any) => (x.site = 'YouTube')
+            ).key;
+          });
+        console.log(this.bannerMovie);
       },
       (error) => {
-        this.toatr.error('Error in getting movies');
+        this.toatr.error('Error in getting popular movies');
       }
     );
     this.movieService.getPlayingMovies().subscribe(
       (data: any) => {
         this.playingMovies = data.results;
-        console.log(this.playingMovies);
       },
       (error) => {
-        this.toatr.error('Error in getting movies');
+        this.toatr.error('Error in getting playing movies');
       }
     );
     this.movieService.getTopRatedMovies().subscribe(
       (data: any) => {
         this.topRatedMovies = data.results;
-        console.log(this.topRatedMovies);
       },
       (error) => {
-        this.toatr.error('Error in getting movies');
+        this.toatr.error('Error in getting top rated movies');
       }
     );
     this.movieService.getUpcomingMovies().subscribe(
       (data: any) => {
         this.upcomingMovies = data.results;
-        console.log(this.upcomingMovies);
       },
       (error) => {
-        this.toatr.error('Error in getting movies');
+        this.toatr.error('Error in getting upcoming movies');
       }
     );
   }

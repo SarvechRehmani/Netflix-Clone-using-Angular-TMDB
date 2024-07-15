@@ -10,9 +10,7 @@ import { tmdbConfig } from '../../constant/config';
   styleUrl: './movie-card.component.css',
 })
 export class MovieCardComponent implements OnInit {
-  ngOnInit(): void {
-    console.log(this.movie);
-  }
+  ngOnInit(): void {}
   @Input() movie!: Movie;
   imgUrl = tmdbConfig.img_path;
 }

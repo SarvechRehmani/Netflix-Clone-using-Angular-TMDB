@@ -36,6 +36,16 @@ export class MovieService {
     });
   }
 
+  getMovieVideo(movieId: number) {
+    const headers = this.getHeaders();
+    return this.http.get(
+      `https://api.themoviedb.org/3/movie/${movieId}/videos`,
+      {
+        headers: headers,
+      }
+    );
+  }
+
   getHeaders() {
     let headers = new HttpHeaders();
     headers = headers.append('Accept', 'application/json');

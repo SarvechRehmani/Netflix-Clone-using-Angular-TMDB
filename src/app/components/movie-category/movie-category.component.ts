@@ -10,11 +10,7 @@ import { Movie } from '../../models/Movies';
   styleUrl: './movie-category.component.css',
 })
 export class MovieCategoryComponent implements OnInit {
-  ngOnInit(): void {
-    console.log(1);
-    console.log(this.moviesList);
-    console.log(2);
-  }
+  ngOnInit(): void {}
   @Input() title = '';
   @Input() moviesList: Movie[] = [];
 }
