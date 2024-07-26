@@ -35,7 +35,7 @@ export class BrowseComponent {
     this.movieService.getPopularMovies().subscribe(
       (data: any) => {
         this.popularMovies = data.results;
-        this.bannerMovie = this.popularMovies[1];
+        this.bannerMovie = this.popularMovies[2];
         this.movieService
           .getMovieVideo(this.bannerMovie.id)
           .subscribe((data: any) => {
